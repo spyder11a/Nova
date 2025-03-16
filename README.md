@@ -1,4 +1,4 @@
-# Igris - Decentralized Hotel Review System 🚀
+# Nova - Decentralized Hotel Review System 🚀
 
 ## 🌟 Inspiration
 
