@@ -18,32 +18,33 @@ import Svg, { Circle, Rect, Path } from "react-native-svg";
 import { useRouter } from "expo-router";
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "expo-router";
-
+import { useThemeContext } from "../../context/ThemeContext";
 const handelHotal = () => {
   Alert.alert("Error", "Both input fields are required");
 };
 
 const home = () => {
   const router = useRouter();
-
-  //
-
   const [selected, setSelected] = useState(1);
+  const { toggleTheme, isDarkMode, theme } = useThemeContext();
 
-
-const handelHotal = () => {
-router.push("/home/hotel")};
+  const handelHotal = () => {
+    router.push("/home/hotel");
+  };
 
   return (
     <ScrollView
-      style={{ backgroundColor: "rgba(14, 14, 14, 1)" }}
+      style={{ backgroundColor: theme.background }}
       showsVerticalScrollIndicator={false} // Hides the vertical scrollbar
     >
-      <View style={styles.root}>
+      <View style={[styles.root, { backgroundColor: theme.background }]}>
         <View style={styles.statusBarIPhone1313Pro} testID="1090:969"></View>
         <View style={styles.frame39} testID="1090:970">
           <View style={styles.frame41} testID="1090:971">
-            <Text style={styles.helloKai} testID="1090:972">
+            <Text
+              style={[styles.helloKai, { color: theme.text_primary }]}
+              testID="1090:972"
+            >
               {`hello Kai,`}
             </Text>
             <ImageBackground
@@ -57,7 +58,10 @@ router.push("/home/hotel")};
             </ImageBackground>
           </View>
           <View style={styles.frame38} testID="1090:977">
-            <View style={styles.frame35} testID="1090:978">
+            <View
+              style={[styles.frame35, { backgroundColor: theme.primary }]}
+              testID="1090:978"
+            >
               <View style={styles.frame89} testID="1090:979">
                 <View style={styles.feSearch} testID="1090:980">
                   <Svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -79,13 +83,32 @@ router.push("/home/hotel")};
             <ScrollView showsHorizontalScrollIndicator={false} bounces={false}>
               <View style={styles.frame1} testID="1090:985">
                 <Pressable
-                  style={[styles.frame25, selected === 1 && styles._frame25]}
+                  // style={[styles.frame25, selected === 1 && styles._frame25,] }
+                  style={[
+                    styles.frame25,
+                    isDarkMode
+                      ? selected === 1
+                        ? { backgroundColor: "#ffffff" } // Dark mode + selected
+                        : {
+                            backgroundColor:
+                              "rgba(217, 217, 217, 0.10196078568696976)",
+                          } // Dark mode + not selected
+                      : selected === 1
+                      ? { backgroundColor: theme.text_primary } // Light mode + selected
+                      : { backgroundColor: theme.primary }, // Light mode + not selected
+                  ]}
                   onPress={() => setSelected(1)}
                 >
                   <Text
                     style={[
                       styles.tranding,
-                      selected === 1 && styles._tranding,
+                      isDarkMode
+                        ? selected === 1
+                          ? { color: theme.text_tertiary } // Dark mode + selected
+                          : { color: theme.text_secondary } // Dark mode + not selected
+                        : selected === 1
+                        ? { color: theme.text_tertiary } // Light mode + selected
+                        : { color: theme.text_secondary }, // Light mode + not selected
                     ]}
                     testID="1090:987"
                   >
@@ -93,13 +116,31 @@ router.push("/home/hotel")};
                   </Text>
                 </Pressable>
                 <Pressable
-                  style={[styles.frame25, selected === 2 && styles._frame25]}
+                  style={[
+                    styles.frame25,
+                    isDarkMode
+                      ? selected === 2
+                        ? { backgroundColor: "#ffffff" } // Dark mode + selected
+                        : {
+                            backgroundColor:
+                              "rgba(217, 217, 217, 0.10196078568696976)",
+                          } // Dark mode + not selected
+                      : selected === 2
+                      ? { backgroundColor: theme.text_primary } // Light mode + selected
+                      : { backgroundColor: theme.primary }, // Light mode + not selected
+                  ]}
                   onPress={() => setSelected(2)}
                 >
                   <Text
                     style={[
                       styles.tranding,
-                      selected === 2 && styles._tranding,
+                      isDarkMode
+                        ? selected === 2
+                          ? { color: theme.text_tertiary } // Dark mode + selected
+                          : { color: theme.text_secondary } // Dark mode + not selected
+                        : selected === 2
+                        ? { color: theme.text_tertiary } // Light mode + selected
+                        : { color: theme.text_secondary }, // Light mode + not selected
                     ]}
                     testID="1090:987"
                   >
@@ -107,13 +148,31 @@ router.push("/home/hotel")};
                   </Text>
                 </Pressable>
                 <Pressable
-                  style={[styles.frame25, selected === 3 && styles._frame25]}
+                  style={[
+                    styles.frame25,
+                    isDarkMode
+                      ? selected === 3
+                        ? { backgroundColor: "#ffffff" } // Dark mode + selected
+                        : {
+                            backgroundColor:
+                              "rgba(217, 217, 217, 0.10196078568696976)",
+                          } // Dark mode + not selected
+                      : selected === 3
+                      ? { backgroundColor: theme.text_primary } // Light mode + selected
+                      : { backgroundColor: theme.primary }, // Light mode + not selected
+                  ]}
                   onPress={() => setSelected(3)}
                 >
                   <Text
                     style={[
                       styles.tranding,
-                      selected === 3 && styles._tranding,
+                      isDarkMode
+                        ? selected === 3
+                          ? { color: theme.text_tertiary } // Dark mode + selected
+                          : { color: theme.text_secondary } // Dark mode + not selected
+                        : selected === 3
+                        ? { color: theme.text_tertiary } // Light mode + selected
+                        : { color: theme.text_secondary }, // Light mode + not selected
                     ]}
                     testID="1090:987"
                   >
@@ -121,13 +180,31 @@ router.push("/home/hotel")};
                   </Text>
                 </Pressable>
                 <Pressable
-                  style={[styles.frame25, selected === 4 && styles._frame25]}
+                  style={[
+                    styles.frame25,
+                    isDarkMode
+                      ? selected === 4
+                        ? { backgroundColor: "#ffffff" } // Dark mode + selected
+                        : {
+                            backgroundColor:
+                              "rgba(217, 217, 217, 0.10196078568696976)",
+                          } // Dark mode + not selected
+                      : selected === 4
+                      ? { backgroundColor: theme.text_primary } // Light mode + selected
+                      : { backgroundColor: theme.primary }, // Light mode + not selected
+                  ]}
                   onPress={() => setSelected(4)}
                 >
                   <Text
                     style={[
                       styles.tranding,
-                      selected === 4 && styles._tranding,
+                      isDarkMode
+                        ? selected === 4
+                          ? { color: theme.text_tertiary } // Dark mode + selected
+                          : { color: theme.text_secondary } // Dark mode + not selected
+                        : selected === 4
+                        ? { color: theme.text_tertiary } // Light mode + selected
+                        : { color: theme.text_secondary }, // Light mode + not selected
                     ]}
                     testID="1090:987"
                   >
@@ -137,7 +214,10 @@ router.push("/home/hotel")};
               </View>
             </ScrollView>
 
-            <Text style={styles.restaurants} testID="1090:992">
+            <Text
+              style={[styles.restaurants, { color: theme.text_primary }]}
+              testID="1090:992"
+            >
               {`Restaurants`}
             </Text>
           </View>
@@ -145,7 +225,11 @@ router.push("/home/hotel")};
           {selected == 1 ? (
             <>
               <ImageBackground
-                source={require("../../../assets/images/dinner1.png")}
+                source={
+                  isDarkMode
+                    ? require("../../../assets/images/_dinner1.png")
+                    : require("../../../assets/images/food9.png")
+                }
                 style={styles.frame892}
                 testID="1090:993"
               >
@@ -153,37 +237,57 @@ router.push("/home/hotel")};
                   <View style={styles.frame13} testID="1090:994">
                     <View style={styles.frame72} testID="1090:995">
                       <View style={styles.group79} testID="1090:996">
-                        {/* <WeuiLocationFilled/> */}
-                        <Text style={styles.roorkee} testID="1090:999">
+                        <Text
+                          style={[
+                            styles.roorkee,
+                            {
+                              color: theme.text_primary,
+                            },
+                          ]}
+                          testID="1090:999"
+                        >
                           {`Roorkee`}
                         </Text>
                       </View>
-                      <View style={{
-                        height: 5,
-                        width:5,
-                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
-                        borderRadius: 4,
-                      }} />
+                      <View
+                        style={{
+                          height: 5,
+                          width: 5,
+                          backgroundColor: theme.background,
+                          borderRadius: 4,
+                        }}
+                      />
                       <View style={styles.group78} testID="1090:1001">
-                        <Text style={styles.$35} testID="1090:1002">
+                        <Text
+                          style={[styles.$35, { color: theme.text_primary }]}
+                          testID="1090:1002"
+                        >
                           {`3.5`}
                         </Text>
                         <View style={styles.frame74} testID="1090:1003">
                           <Svg
-                                                     width="15"
-                                                     height="15"
-                                                     viewBox="0 0 15 15"
-                                                     fill="none"
-                                                   >
-                                                     <Path
-                                                       d="M7.43297 0.794189L9.58147 5.14803L14.3865 5.84617L10.9097 9.23515L11.7302 14.0205L7.43297 11.7612L3.13545 14.0205L3.95625 9.23515L0.479492 5.84617L5.28421 5.14803L7.43297 0.794189Z"
-                                                       fill="#FAC917"
-                                                     />
-                            </Svg>
+                            width="15"
+                            height="15"
+                            viewBox="0 0 15 15"
+                            fill="none"
+                          >
+                            <Path
+                              d="M7.43297 0.794189L9.58147 5.14803L14.3865 5.84617L10.9097 9.23515L11.7302 14.0205L7.43297 11.7612L3.13545 14.0205L3.95625 9.23515L0.479492 5.84617L5.28421 5.14803L7.43297 0.794189Z"
+                              fill="#FAC917"
+                            />
+                          </Svg>
                         </View>
                       </View>
                     </View>
-                    <Text style={styles.painAuChocolat} testID="1090:1005">
+                    <Text
+                      style={[
+                        styles.painAuChocolat,
+                        {
+                          color: theme.text_primary,
+                        },
+                      ]}
+                      testID="1090:1005"
+                    >
                       {`Sun Dried Meat`}
                     </Text>
                   </View>

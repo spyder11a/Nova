@@ -22,26 +22,30 @@ import * as ImagePicker from "expo-image-picker";
 import { Video } from "expo-av"; // Import Video from expo-av
 import axios from "axios";
 import { BookingContext } from "./context/BookingContext";
+import { useThemeContext } from "../context/ThemeContext";
+
 
 
 const notification = () => {
 
   const { bookings } = useContext(BookingContext);
   const { resetBookings } = useContext(BookingContext);
+  const { toggleTheme, isDarkMode, theme } = useThemeContext();
+  
   
 
   return (
     <ScrollView
-      style={{ backgroundColor: "rgba(14, 14, 14, 1)" }}
+      style={{ backgroundColor: theme.background }}
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false} // Hides the vertical scrollbar
     >
-      <View style={styles.root}>
+      <View style={[styles.root,{backgroundColor:theme.background}]}>
         <View style={styles.frame22} testID="1269:3">
           <Svg width="9" height="16" viewBox="0 0 9 16" fill="none">
             <Path
               d="M7.57319 1.47705L1.24316 7.80708L7.57319 14.1371"
-              stroke="white"
+              stroke={theme.text_primary}
               strokeWidth="2.11001"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -49,7 +53,7 @@ const notification = () => {
           </Svg>
         </View>
         <View style={styles.frame101} testID="1269:5">
-          <Text style={styles.newPost} testID="1269:6">
+          <Text style={[styles.newPost,{color:theme.text_primary}]} testID="1269:6">
             {`Notification`}
           </Text>
         </View>
@@ -90,27 +94,26 @@ const notification = () => {
                   </View>
                 </View>
               </View>
-              <View style={styles.frame118} testID="1348:229">
                 <Text style={styles.now} testID="1348:230">
                   {`now`}
                 </Text>
-                <Image    style={styles.frame131} testID="1348:231"></Image>
-              </View>
             </View>
             ))
           )}
 
           <View style={styles.frame130} testID="1348:219">
-            <View style={styles.frame129} testID="1348:220">
+            <View style={[styles.frame129,{backgroundColor:theme.primary}]} testID="1348:220">
               <View style={styles.frame132} testID="1348:221">
                 <View style={styles.frame120} testID="1348:222">
                   <View style={styles.frame117} testID="1348:223">
-                    <Text style={styles.posted} testID="1348:224">
+                    <Text style={[styles.posted,{color:theme.text_primary}]} testID="1348:224">
                       {`Posted!!!`}
                     </Text>
                     <Text
-                      style={
-                        styles.stephanieMarinkovicPostedANewRecipeWhiskeySour
+                      style={[
+                        styles.stephanieMarinkovicPostedANewRecipeWhiskeySour,
+                      {color:theme.text_secondary}
+                      ]
                       }
                       testID="1348:225"
                     >
@@ -121,9 +124,10 @@ const notification = () => {
                 <View style={styles.frame121} testID="1348:226">
                   <View style={styles.frame1172} testID="1348:227">
                     <Text
-                      style={
+                      style={[
                         styles.ipfsQmZ4TDuvesekSs4QM5ZbKpXiZGun7S2CYtEzrb3DyXkjGx
-                      }
+                        ,{color:theme.text_secondary}
+                      ]}
                       testID="1348:228"
                     >
                       {`IPFS:QmZ4tDuvesekSs4qM5ZBKpXiZGun7S2CYtEZRB3DYXkjGx`}
@@ -131,23 +135,24 @@ const notification = () => {
                   </View>
                 </View>
               </View>
-              <View style={styles.frame118} testID="1348:229">
-                <Text style={styles.now} testID="1348:230">
+            
+                <Text style={[styles.now,{color:theme.text_secondary}]} testID="1348:230">
                   {`1d`}
                 </Text>
-                <View style={styles.frame131} testID="1348:231"></View>
-              </View>
+                
             </View>
-            <View style={styles.frame129} testID="1348:220">
+            <View style={[styles.frame129,{backgroundColor:theme.primary}]} testID="1348:220">
               <View style={styles.frame132} testID="1348:221">
                 <View style={styles.frame120} testID="1348:222">
                   <View style={styles.frame117} testID="1348:223">
-                    <Text style={styles.posted} testID="1348:224">
+                    <Text style={[styles.posted,{color:theme.text_primary}]} testID="1348:224">
                       {`Booked!!!`}
                     </Text>
                     <Text
-                      style={
-                        styles.stephanieMarinkovicPostedANewRecipeWhiskeySour
+                      style={[
+                        styles.ipfsQmZ4TDuvesekSs4QM5ZbKpXiZGun7S2CYtEzrb3DyXkjGx,
+                      {color:theme.text_secondary}
+                      ]
                       }
                       testID="1348:225"
                     >
@@ -157,20 +162,20 @@ const notification = () => {
                 </View>
               
               </View>
-              <View style={styles.frame118} testID="1348:229">
-                <Text style={styles.now} testID="1348:230">
+             
+                <Text style={[styles.now,{color:theme.text_secondary}]} testID="1348:230">
                   {`5d`}
                 </Text>
-                <View style={styles.frame131} testID="1348:231"></View>
-              </View>
+                
+            
             </View>
            
          
           </View>
         
         </View>
-        <TouchableOpacity style={styles.frame21}  onPress={resetBookings} >
-          <Text style={styles.bookNow} testID="1256:2244">
+        <TouchableOpacity style={[styles.frame21,{backgroundColor:theme.text_primary}]}  onPress={resetBookings} >
+          <Text style={[styles.bookNow,{color:theme.text_tertiary}]} testID="1256:2244">
             {`Clear`}
           </Text>
         </TouchableOpacity>
@@ -483,12 +488,11 @@ const styles = StyleSheet.create({
   },
   stephanieMarinkovicPostedANewRecipeWhiskeySour: {
     alignSelf: "stretch",
-    width: 245,
     color: "rgba(255, 255, 255, 0.8)",
     fontFamily: "Inter",
-    fontSize: 14,
+    fontSize: 15,
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "600",
     lineHeight: 18.72,
     letterSpacing: 0.208,
   },
@@ -561,7 +565,7 @@ const styles = StyleSheet.create({
   },
   frame121: {
     flexDirection: "row",
-    width: 242,
+   
     alignItems: "center",
     rowGap: 40.56,
     columnGap: 40.56,
@@ -586,14 +590,7 @@ const styles = StyleSheet.create({
     lineHeight: 15.98,
     letterSpacing: 0.187,
   },
-  frame118: {
-    width: 35.36,
-    height: 58.987,
-    gap:6,
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
+ 
   frame131: {
     flexDirection: "row",
     width: 40.36,
