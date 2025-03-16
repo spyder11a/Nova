@@ -24,11 +24,11 @@ const config = defaultConfig({ metadata });
 
 // 3. Define your chains
 const Electroneum = {
-  chainId: 5201420, // Converted from hex (0x4f5e0c) to decimal
-  name: 'Electroneum Testnet',
-  currency: 'ETN',
-  explorerUrl: '', // Add explorer URL if available
-  rpcUrl: 'https://rpc.ankr.com/electroneum_testnet',
+  chainId: 534351, // Converted from hex (0x4f5e0c) to decimal
+  name: 'Scroll Sepolia',
+  currency: 'ETH',
+  explorerUrl: 'https://sepolia.scrollscan.com', // Add explorer URL if available
+  rpcUrl: 'https://sepolia-rpc.scroll.io',
 };
 
 const chains = [Electroneum];

@@ -56,17 +56,16 @@ useEffect(() => {
  
   
   if (selected === 1 && isConnected) {
-    console.log('home1')
+    console.log('---------------------Home----------------------')
     router.push("/home");
     return;
   }
   if (selected === 2 && isConnected) {
-    console.log('Hotel')
+    console.log('--------------------Hotel---------------------')
     router.push("/(hotel)");
     return;
   }
   if (isConnected) {
-    console.log('home')
     router.push("/home");
     return;
   }

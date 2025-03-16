@@ -180,7 +180,7 @@ const profile = () => {
                 testID="1272:169"
               >
                 <ImageBackground
-                  source={require("../../../assets/images/profile9.png")}
+                  source={require("../../../assets/images/profile.png")}
                   style={styles.frame106}
                   testID="1272:170"
                 ></ImageBackground>

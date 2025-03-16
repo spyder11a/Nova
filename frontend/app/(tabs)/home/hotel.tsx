@@ -638,6 +638,7 @@ const styles = StyleSheet.create({
     paddingTop: 21.452,
     paddingLeft: 0,
     paddingBottom: 21.452,
+    marginBottom:80,
     paddingRight: 0,
     justifyContent: "center",
     alignItems: "center",

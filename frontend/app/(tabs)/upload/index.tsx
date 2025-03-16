@@ -136,9 +136,9 @@ const upload = () => {
 
       const headers = {
         "Content-Type": "multipart/form-data",
-        pinata_api_key: "0233035af3ed41ecf64e",
+        pinata_api_key: "09370d9f4e73eead60cf",
         pinata_secret_api_key:
-          "251c8891c0e1168b65b562fc326d520cf82213058e9466104e513cead2fdf98d",
+          "8a811ba5b83fd0c629b4c68c94a5e3b65d8d2a09a8fa4cb9e323587dc9a70944",
       };
 
       const response = await axios.post(

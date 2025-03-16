@@ -4,7 +4,7 @@ import { useAppKit, useAppKitAccount, useAppKitProvider } from "@reown/appkit-et
 import SimpleHotelReviewABI from "./ContractJson/HotelReviewABI.json";
 import { useWalletStore } from "@/components/walletStore";
 
-const CONTRACT_ADDRESS = "0xf17496625e0d602FF36e133C3B4CD1f5c0D3678a";
+const CONTRACT_ADDRESS = "0x602E7B42515d3E93A04e176C09a24eaF9F617c88";
 
 export function useHotelReview() {
   
@@ -17,8 +17,8 @@ export function useHotelReview() {
     }
     try {
       console.log("🔗 Connecting to contract...");
-      // Pass the chainId if required (e.g., 5201420)
-      const provider = new BrowserProvider(walletProvider, 5201420);
+      // Pass the chainId if required (e.g., 534351)
+      const provider = new BrowserProvider(walletProvider, 534351);
       const signer = await provider.getSigner();
       console.log("✅ Connected to contract with signer:", signer);
       return new Contract(CONTRACT_ADDRESS, SimpleHotelReviewABI, signer);
