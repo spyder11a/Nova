@@ -62,7 +62,7 @@ Nova, built on the Scroll Blockchain, offers the following functionalities:
 
 ## 🔗 Demo & Download
 
-- 🌐 **Live Demo**: https://www.youtube.com/watch?v=AdK-xbJrXzI
+- 🌐 **Live Demo**: https://youtu.be/YhAn7zfzw5I
 - 📥 **Download APK**: https://expo.dev/artifacts/eas/6TX2pCJWvE3u5m6d3GZocT.apk
 
 ## 🏗️ Built With
