@@ -76,6 +76,9 @@ const reels = () => {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [reelsData, setReelsData] = useState([]); // State for fetched reels
   const { getAllReviews } = useHotelReview();
+  const location = ['Bombay', 'Roorkee','Delhi','Roorkee','Gandhinagar']
+  const Restaurant =['Urban Bites','Sun Dried Meat','The Social Fork','Epicurean Haven','Plated Perfection']
+  const Avatar = [require('../../../assets/images/profile1.png'),require('../../../assets/images/profile1.png'),require('../../../assets/images/profile1.png'),require('../../../assets/images/profile.png')]
   
 
    const [refreshKey, setRefreshKey] = useState(0);
@@ -98,7 +101,7 @@ const reels = () => {
             userName: "@user1",
             address: review.reviewer,
             likes: 1234,
-            rating: 4.5,
+            rating: review.rating,
             description: review.reviewText || "No description",
             hotel: review.hotel || "Unknown",
             location: review.location || "N/A",
@@ -153,7 +156,7 @@ const reels = () => {
         <View style={styles.group46} testID="1293:186">
           <View style={styles.frame113} testID="1293:187">
             <Image
-              source={require("../../../assets/images/profile1.png")}
+              source={Avatar[focusedIndex]}
               style={styles.profile}
             />
             <View style={styles.frame112} testID="1293:191">
@@ -216,12 +219,33 @@ const reels = () => {
                   />
                 </Svg>
                 <Text style={styles.fortNegen} testID="1293:204">
-                  {`Fort Negen`}
+                  {location[focusedIndex]}
                 </Text>
+               
               </View>
+              <View style={{ flexDirection: 'row', gap: 8, justifyContent: 'center', alignItems: 'center' }}>
               <Text style={styles.painAuChocolat} testID="1293:205">
-                {`Sun Dried Meat`}
+                {Restaurant[focusedIndex]}
               </Text>
+              <View style={{height:5 ,width:5 ,borderRadius:2.5, backgroundColor:'white'}}/>
+              <View style={{flexDirection:'row',gap:'4'}}>
+              <Text style={styles.painAuChocolat} testID="1293:205">
+              {reelsData[focusedIndex]?.rating || "No description available"} 
+              </Text>
+              <View style={{marginTop:5}}>
+              <Svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                <Path d="M8.40704 0.0996094L10.9051 5.1618L16.4918 5.97352L12.4494 9.91387L13.4034 15.4778L8.40704 12.8509L3.41034 15.4778L4.36467 9.91387L0.322266 5.97352L5.90869 5.1618L8.40704 0.0996094Z" fill="#FAC917"/>
+              </Svg>
+
+              </View>
+
+              </View>
+          
+             
+              
+
+           </View>
+             
             </View>
            
             <TouchableOpacity onPress={() => router.push('/reels/hotel')} style={styles.frame67} testID="1293:206">
@@ -447,7 +471,7 @@ const styles = StyleSheet.create({
     columnGap: 3.467,
   },
   painAuChocolat: {
-    width: 175.067,
+
     color: "rgba(255, 255, 255, 1)",
     textAlign: "start",
     fontFamily: "Inter",

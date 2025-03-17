@@ -3,8 +3,8 @@ import { BrowserProvider, parseEther, Contract } from "ethers";
 import { useAppKit, useAppKitAccount, useAppKitProvider } from "@reown/appkit-ethers-react-native";
 import HotelBookingABI from "./ContractJson/HotelBookingABI.json";
 import { useWalletStore } from "@/components/walletStore";
-const CONTRACT_ADDRESS = "0xa854E3ee9eFa1936034dE51CCD6e6fB66F4309cF";
 
+const CONTRACT_ADDRESS = "0xe1b4137756CeBF4f3dD81f49E1e2C555B215f3a9";
 export function useHotelBooking() {
     const { address, chainId, isConnected, walletProvider } = useWalletStore();
 
@@ -43,7 +43,7 @@ export function useHotelBooking() {
         try {
             console.log("📝 Booking hotel...");
             const tx = await contract.bookHotel(hotelAddress, {
-                value: parseEther("0.05"), // Booking fee as specified in the contract
+                value: parseEther("0.0005"), // Booking fee as specified in the contract
             });
             console.log("⏳ Waiting for transaction confirmation...");
             await tx.wait();

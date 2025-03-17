@@ -6,7 +6,7 @@ import { useWalletStore } from "../components/walletStore";
 import { Alert } from "react-native";
 
 // Replace with your deployed smart contract address
-const CONTRACT_ADDRESS = "0xa854E3ee9eFa1936034dE51CCD6e6fB66F4309cF";
+const CONTRACT_ADDRESS = "0xe1b4137756CeBF4f3dD81f49E1e2C555B215f3a9";
 
 export function useHotelBooking() {
     const { address, chainId, isConnected, walletProvider } = useWalletStore();
@@ -49,7 +49,7 @@ export function useHotelBooking() {
         try {
             console.log("📝 Subscribing to platform...");
             const tx = await contract.subscribeToPlatform({
-                value: parseEther("0.1"), // Minimum subscription fee
+                value: parseEther("0.005"), // Minimum subscription fee
             });
             console.log("⏳ Waiting for transaction confirmation...");
             await tx.wait();

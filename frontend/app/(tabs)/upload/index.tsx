@@ -78,7 +78,7 @@ const upload = () => {
     });
 
     try {
-      const response = await fetch("http://10.81.57.247:5001/upload", {
+      const response = await fetch("http://10.61.114.32:5001/upload", {
         method: "POST",
         body: formData,
         headers: {

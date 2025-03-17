@@ -102,6 +102,33 @@ const notification = () => {
           )}
 
           <View style={styles.frame130} testID="1348:219">
+          <View style={[styles.frame129,{backgroundColor:theme.primary}]} testID="1348:220">
+              <View style={styles.frame132} testID="1348:221">
+                <View style={styles.frame120} testID="1348:222">
+                  <View style={styles.frame117} testID="1348:223">
+                    <Text style={[styles.posted,{color:theme.text_primary}]} testID="1348:224">
+                      {`Booked!!!`}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.ipfsQmZ4TDuvesekSs4QM5ZbKpXiZGun7S2CYtEzrb3DyXkjGx,
+                      {color:theme.text_secondary}
+                      ]
+                      }
+                      testID="1348:225"
+                    >
+                      {`hash:0x4a293a86cba66c1c1971c350af5c4a0c31fa5eda730ec70660c5d4c5343d1271`}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+             
+                <Text style={[styles.now,{color:theme.text_secondary}]} testID="1348:230">
+                  {`1d`}
+                </Text>
+                
+            
+            </View>
             <View style={[styles.frame129,{backgroundColor:theme.primary}]} testID="1348:220">
               <View style={styles.frame132} testID="1348:221">
                 <View style={styles.frame120} testID="1348:222">
@@ -135,40 +162,12 @@ const notification = () => {
                   </View>
                 </View>
               </View>
-            
-                <Text style={[styles.now,{color:theme.text_secondary}]} testID="1348:230">
-                  {`1d`}
-                </Text>
-                
-            </View>
-            <View style={[styles.frame129,{backgroundColor:theme.primary}]} testID="1348:220">
-              <View style={styles.frame132} testID="1348:221">
-                <View style={styles.frame120} testID="1348:222">
-                  <View style={styles.frame117} testID="1348:223">
-                    <Text style={[styles.posted,{color:theme.text_primary}]} testID="1348:224">
-                      {`Booked!!!`}
-                    </Text>
-                    <Text
-                      style={[
-                        styles.ipfsQmZ4TDuvesekSs4QM5ZbKpXiZGun7S2CYtEzrb3DyXkjGx,
-                      {color:theme.text_secondary}
-                      ]
-                      }
-                      testID="1348:225"
-                    >
-                      {`hash:0x4a293a86cba66c1c1971c350af5c4a0c31fa5eda730ec70660c5d4c5343d1271`}
-                    </Text>
-                  </View>
-                </View>
-              
-              </View>
-             
                 <Text style={[styles.now,{color:theme.text_secondary}]} testID="1348:230">
                   {`5d`}
                 </Text>
                 
-            
             </View>
+           
            
          
           </View>
